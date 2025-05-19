@@ -19,7 +19,7 @@ const HeroBanner = () => {
               <a href="#exercises" style={{ textDecoration: 'none', width: '200px', textAlign: 'center', background: '#FF2625', padding: '10px', fontSize: '20px', textTransform: 'none', color: 'white', borderRadius: '4px' }}>Explore Exercises</a>
             </Stack>
         <Typography fontWeight={"600"} color='#ff2625'
-        sx={{opacity:"0.1", display:{lg:'block', xs:"none"}}} fontSize={"200px"}>
+        sx={{opacity:"0.2", display:{md:'block', sm:"none"}, fontSize:{lg:'200px'}}} zIndex={'100'}>
            WORKOUT
         </Typography>
         <img src='/banner.png' alt='banner' className="hero-banner-img"/>

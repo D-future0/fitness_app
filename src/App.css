@@ -2,33 +2,12 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 auto;
+  box-sizing: border-box;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-
 
 body {
   /* font-family: 'Montserrat'; */
   /* background-color: #FFFAFB; */
-}
-
-* {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-
 }
 
 ::-webkit-scrollbar {
@@ -44,7 +23,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FF2625;
+  color: #ff2625;
   font-size: 25px;
   border-radius: 4px;
   position: absolute;
@@ -78,16 +57,17 @@ body {
   position: absolute;
   right: 35px;
   top: 0px;
+  z-index: -10;
   max-width: 600px;
   /* height: 900px; */
-  margin-top: -180px;
+  margin-top: -200px;
 }
 
 .exercise-card {
   width: 400px;
   height: 445px;
   background: #fff;
-  border-top: 4px solid #FF2625;
+  border-top: 4px solid #ff2625;
   border-bottom-left-radius: 20px;
   text-decoration: none;
   display: flex;
@@ -113,8 +93,8 @@ body {
 }
 
 .search-btn:hover {
-  color: #FF2625 !important;
-  border: 1px solid #FF2625 !important;
+  color: #ff2625 !important;
+  border: 1px solid #ff2625 !important;
 }
 
 .exercise-video {
@@ -126,12 +106,11 @@ body {
   text-decoration: none;
 }
 
-@media screen and (max-width:1100px) {
+@media screen and (max-width: 1200px) {
   .detail-image {
     width: 300px;
     height: 300px;
   }
-
 
   .react-horizontal-scrolling-menu--scroll-container {
     width: 500px;
@@ -144,8 +123,8 @@ body {
 
   .hero-banner-img {
     /* display: none; */
-      margin-top: -150px;
-    width: 500px;
+    margin-top: -140px;
+    width: 400px;
   }
 
   .exercise-card {
@@ -156,23 +135,23 @@ body {
     width: 320px;
     height: 300px;
   }
-
 }
-@media screen and (max-width:1000px) {
-   .hero-banner-img {
+@media screen and (max-width: 1000px) {
+  .hero-banner-img {
     /* display: none; */
-      margin-top: -140px;
-      margin-right: -40px;
-      
+    margin-top: -140px;
+    margin-right: -40px;
+    z-index: 0;
+
     max-width: 450px;
   }
 }
-@media screen and (max-width:868px) {
-   .hero-banner-img {
+@media screen and (max-width: 868px) {
+  .hero-banner-img {
     display: none;
   }
 }
-@media screen and (max-width:400px) {
+@media screen and (max-width: 400px) {
   .exercise-card {
     width: 280px;
   }

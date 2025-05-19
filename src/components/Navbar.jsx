@@ -10,7 +10,7 @@ const Navbar = () => {
         sx={{gap:{sm:"122px", xs:"122px"}, mt:{sm:"32px", xs:"20px"}, justifyContent:"none"}} 
         px={"20px"}>
         <Link to={"/"}>
-      <img src={'/logo.png'} alt={'boi-gym-logo'} style={{width: '100px'}}/>
+      <img src={'/logo.png'} alt={'boi-gym-logo'} style={{width: '120px'}}/>
         </Link> 
         <Stack
         direction={"row"}
