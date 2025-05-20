@@ -6,6 +6,13 @@ export const exerciseOptions = {
     'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
   }
 }; 
+export const youTubeOptions = {
+  method: 'GET',
+  headers: {
+    'x-rapidapi-key': `${import.meta.env.VITE_APP_RAPID_API_KEY}`,
+    'x-rapidapi-host':'youtube-search-and-download.p.rapidapi.com'
+  }
+}; 
 
 export const fetchData = async (url, options)=>{
 const response = await fetch(url, options);
