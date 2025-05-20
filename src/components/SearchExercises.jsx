@@ -3,9 +3,8 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
-const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
+const SearchExercises = ({bodyPart, setBodyPart, setExercises, startFromTop}) => {
   const [search, setSearch] = useState("");
-  
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() => {
@@ -15,28 +14,45 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
         exerciseOptions
       );
       setBodyParts(["all", ...bodyPartsData]);
-      console.log(bodyPartsData);
     };
     fetchExerciseCategoriesData();
   }, []);
 
   const handleSearch = async () => {
-    if (search) {
-      const exercisesData = fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises",
+  if (search) {
+    try {
+      const rawData = await fetchData(
+        'https://exercisedb.p.rapidapi.com/exercises',
         exerciseOptions
       );
+
+      console.log('API response:', rawData); // Check what you're actually getting
+
+      const exercisesData = Array.isArray(rawData) ? rawData : rawData.data;
+
+      if (!Array.isArray(exercisesData)) {
+        throw new Error('Expected an array but got: ' + typeof exercisesData);
+      }
+
+      const searchTerm = search.trim().toLowerCase();
       const searchedExercises = exercisesData.filter(
-        (exercise) =>
-          exercise.name.toLocaleLowerCase().includes(search) ||
-          exercise.target.toLocaleLowerCase().includes(search) ||
-          exercise.equipment.toLocaleLowerCase().includes(search) ||
-          exercise.bodyPart.toLocaleLowerCase().includes(search)
+        (item) =>
+          item.name.toLowerCase().includes(searchTerm) ||
+          item.target.toLowerCase().includes(searchTerm) ||
+          item.equipment.toLowerCase().includes(searchTerm) ||
+          item.bodyPart.toLowerCase().includes(searchTerm)
       );
+
+      startFromTop.current.scrollIntoView({
+      behavior: "smooth"})
       setSearch("");
       setExercises(searchedExercises);
+    } catch (error) {
+      console.error("Search error:", error);
     }
-  };
+  }
+};
+
   return (
     <Stack
       alignItems="center"
