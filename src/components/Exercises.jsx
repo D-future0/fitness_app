@@ -49,6 +49,7 @@ const Exercises = ({ exercises, setExercises, bodyPart, startFromTop }) => {
         sx={{ fontSize: { lg: "44px", xs: "30px" } }}
         mb="46px"
         ref={startFromTop}
+        id="exercises"
       >
         Showing Results
       </Typography>
